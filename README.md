@@ -1,4 +1,13 @@
-# LeetCode-Problems
+<div align="center">
+  
+# Solutions to problems.
+<a href="https://leetcode.com/"><img width="50" height="50" alt="lclogo2" src="https://github.com/user-attachments/assets/d63129ee-e387-4979-95da-563fdc3b70ce" /></a>
+
+Здесь хранятся мои собственные решения различных задач. 
+В настоящий момент размещаются решения задач только из LeetCode.
+
+</div>
+
 >[!IMPORTANT]
 >### Работодателям
 >В настоящее время первостепенная задача данного репозитория заключается в демонстрации собственных способностей его автора (Def Vol) для работодателей, который находится в активном поиске работы.
