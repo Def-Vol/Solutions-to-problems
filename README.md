@@ -1,6 +1,6 @@
 <div align="center">
   
-# <img width="40" height="40" alt="image" src="https://github.com/user-attachments/assets/2347d6c8-b1ca-4306-aca8-27df89dc4b60" /> Solutions to problems
+# <img width="40" height="40" alt="image" src="https://github.com/user-attachments/assets/a2d5d19f-c273-48c3-82b4-fdaa2d2b7556" /> Solutions to problems
 <a href="https://leetcode.com/">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/fadf18f4-8c42-4dac-96d2-b50da1954085">
