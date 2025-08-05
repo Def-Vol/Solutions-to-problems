@@ -4,7 +4,8 @@
 <a href="https://leetcode.com/"><img width="40" height="40" alt="lclogo2" src="https://github.com/user-attachments/assets/ed6a7c4e-14e7-4180-b23c-c605cde849a8" /></a>
 
 Здесь хранятся мои собственные решения различных задач.  
-В настоящий момент размещаются решения задач только из LeetCode.
+В настоящий момент размещаются решения задач только из LeetCode.  
+Используемый язык: Python
 
 </div>
 
