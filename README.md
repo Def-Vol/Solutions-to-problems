@@ -1,9 +1,9 @@
 <div align="center">
   
 # Solutions to problems.
-<a href="https://leetcode.com/"><img width="50" height="50" alt="lclogo2" src="https://github.com/user-attachments/assets/d63129ee-e387-4979-95da-563fdc3b70ce" /></a>
+<a href="https://leetcode.com/"><img width="40" height="40" alt="lclogo2" src="https://github.com/user-attachments/assets/ed6a7c4e-14e7-4180-b23c-c605cde849a8" /></a>
 
-Здесь хранятся мои собственные решения различных задач. 
+Здесь хранятся мои собственные решения различных задач.  
 В настоящий момент размещаются решения задач только из LeetCode.
 
 </div>
