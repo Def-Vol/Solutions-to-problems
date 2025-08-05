@@ -1,6 +1,6 @@
 <div align="center">
   
-# Solutions to problems.
+# <img width="40" height="40" alt="image" src="https://github.com/user-attachments/assets/2347d6c8-b1ca-4306-aca8-27df89dc4b60" /> Solutions to problems.
 <a href="https://leetcode.com/">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/fadf18f4-8c42-4dac-96d2-b50da1954085">
@@ -10,7 +10,7 @@
 </a>
 
 Здесь хранятся мои собственные решения различных задач.  
-Пока размещаются решения задач только из LeetCode.  
+В данный момент размещаются решения только задач из LeetCode.  
 Используемый язык: Python
 
 </div>
