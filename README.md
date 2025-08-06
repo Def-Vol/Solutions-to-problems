@@ -1,7 +1,7 @@
 <div align="center">
   
 # <img width="40" height="40" alt="image" src="https://github.com/user-attachments/assets/a2d5d19f-c273-48c3-82b4-fdaa2d2b7556" /> Solutions to problems
-<a href="https://leetcode.com/" target="blank">
+<a href="https://leetcode.com/" target="_blank">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/fadf18f4-8c42-4dac-96d2-b50da1954085">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/ad0e3eda-ebbe-4fd5-8613-91d673b98fd1">
