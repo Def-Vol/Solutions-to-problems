@@ -11,3 +11,14 @@ def my_solution1(nums):
             for n1 in range(rcount-1):
                 nums.remove(nums[ind])
         ind += 1
+
+
+def my_solution2(nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    ind = 0 
+    while ind < len(nums):
+        del nums[ind+1:ind+nums.count(nums[ind])]
+        ind += 1
