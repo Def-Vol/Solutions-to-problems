@@ -33,10 +33,10 @@ def my_solution1(s, words):
         if finish:
             break
         start_ind.sort()
-        first = len(start_ind) - len(remw) - 1 if len(start_ind) > len(remw) else 0
-        after = start_ind[first] + len(concat[start_ind[first]])
+        #first = len(start_ind) - len(remw) - 1 if len(start_ind) > len(remw) else 0
+        after = start_ind[0] + len(concat[start_ind[0]])
         res = True
-        for n2 in range(first+1, len(start_ind)):
+        for n2 in range(1, len(start_ind)):
             num = start_ind[n2]
             if after != num:
                 res = False
@@ -49,5 +49,8 @@ def my_solution1(s, words):
             start_ind = start_ind[1:]
         else:
             remw = [concat[s1] for s1 in start_ind[:last]]
+            if len(remw) > 1 and any(ns.find(n4, start_ind[last-1]) != -1 for n4 in remw):
+                last = last-1
+                del remw[-1]
             start_ind = start_ind[last:]
     return result
