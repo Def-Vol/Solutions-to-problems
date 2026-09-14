@@ -1,7 +1,7 @@
 def my_solution1(s, words):
     if any(s.find(w) == -1 for w in words):
         return []
-    if s.count(s[0]) == len(s):
+    if len(set(s)) == 1:
         last = len(s) - len(words[0])*len(words)
         return [ind for ind in range(len(s)) if ind <= last]
     ns = s
