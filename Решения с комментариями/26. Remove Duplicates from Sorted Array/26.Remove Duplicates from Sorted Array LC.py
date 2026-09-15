@@ -1,3 +1,5 @@
+#https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/ - условие задачи
+
 #"remove the duplicates in-place", то есть суть задачи: удалять повторяющиеся значения необходимо именно в переданном списке, не создавая новый,
 #поэтому решить задачу через множество в одно действие (nums = list(set(nums)).sort()) - невозможно, ибо это удаление старого и создание нового списка
 
