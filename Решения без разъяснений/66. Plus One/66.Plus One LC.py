@@ -21,3 +21,26 @@ def my_solution1(digits):
         result.append(rem)
     result.reverse()
     return result
+
+
+def my_solution2(digits):
+    num = -1
+    rem = 0
+    end = len(digits)-1
+    for i in range(end, -1, -1):
+        if rem == 1:
+            num = digits.pop(i)
+            num += 1
+            rem = 0
+        if i == end:
+            num = digits.pop(i)
+            num += 1
+        if num == 10:
+            rem = 1
+            num = 0
+        if num != -1:
+            digits.insert(i, num)
+            num = -1
+    if rem == 1:
+        digits.insert(0, 1)
+    return digits
