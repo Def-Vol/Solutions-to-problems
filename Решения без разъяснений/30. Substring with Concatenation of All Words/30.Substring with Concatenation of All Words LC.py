@@ -54,3 +54,7 @@ def my_solution1(s, words):
                 del remw[-1]
             start_ind = start_ind[last:]
     return result
+
+
+def my_solution2(s, words):
+    pass
