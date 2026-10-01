@@ -11,12 +11,12 @@ def my_solution1(n):
     n -= 2
     for n1 in range(n):
         string = result
-        letters = result[0]
+        nums = result[0]
         result = ''
         for n2 in range(1, len(string)):
-            if string[n2] != letters[0]:
-                result = result + str(len(letters)) + letters[0]
-                letters = ''
-            letters += string[n2]
-        result = result + str(len(letters)) + letters[0]
+            if string[n2] != nums[0]:
+                result = result + str(len(nums)) + nums[0]
+                nums = ''
+            nums += string[n2]
+        result = result + str(len(nums)) + nums[0]
     return result
