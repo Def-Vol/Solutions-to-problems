@@ -1,3 +1,41 @@
+def my_solution2(s, words):
+    """
+    :type s: str
+    :type words: List[str]
+    :rtype: List[int]
+    """
+    for w in set(words):
+        if w not in s:
+            return []
+    leng = len(w)
+    if leng*len(words) > len(s):
+        return []
+    result = []
+    start = 0
+    while start < len(s):
+        inds = []
+        for w in words:
+            ind = s.find(w, start)
+            while ind in inds:
+                ind = s.find(w, ind+1)
+            if ind == -1:
+                return result
+            inds.append(ind)
+        inds.sort()
+        num = None
+        concat = True
+        for n in inds:
+            if not num:
+                num = n
+                continue
+            if n - num != leng:
+                concat = False
+                break
+        if concat:
+            result.append(inds[0])
+            start = inds[0] + 1
+
+#Это решение выполняет задачу частично: пройденных тестов 163 из 183
 def my_solution1(s, words):
     if any(s.find(w) == -1 for w in words):
         return []
@@ -54,7 +92,3 @@ def my_solution1(s, words):
                 del remw[-1]
             start_ind = start_ind[last:]
     return result
-
-
-def my_solution2(s, words):
-    pass
