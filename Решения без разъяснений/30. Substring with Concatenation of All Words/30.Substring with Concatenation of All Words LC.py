@@ -14,12 +14,12 @@ def my_solution2(s, words):
     start = 0
     while start < len(s):
         inds = []
+        string = s
         for w in words:
-            ind = s.find(w, start)
-            while ind in inds:
-                ind = s.find(w, ind+1)
-            if ind == -1:
+            ind = string.find(w, start)
+            if ind == -1 or ind + leng > len(string):
                 return result
+            string = string[:ind] + '*'*leng + string[ind+leng:]
             inds.append(ind)
         inds.sort()
         num = None
@@ -31,9 +31,12 @@ def my_solution2(s, words):
             if n - num != leng:
                 concat = False
                 break
+            num = n
         if concat:
             result.append(inds[0])
-            start = inds[0] + 1
+        start = inds[0] + 1
+    return result
+
 
 #Это решение выполняет задачу частично: пройденных тестов 163 из 183
 def my_solution1(s, words):
