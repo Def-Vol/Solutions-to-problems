@@ -1,3 +1,71 @@
+'''
+В попытках найти простое решение для решения теста 157 (подробнее после функции). Я решил добавить дополнительное
+условие после прохождения if ind == -1 or ind + leng > lens, так как именно оно в итоге возращает пустой список.
+Это условие: если минимальный полученный индекс всё ещё допускает наличие конкатенированной строки, то всего лишь
+изменить значение start и начать поиск строки сначала. Однако это не позволило получить верное решение банально из-за
+того, что цикл for всегда начинает поиск именно с определённого слова, тогда как для получения верного решения в этом
+тесте необходимо начинать поиск с другого.
+'''
+def my_solution3(s, words):
+    """
+    :type s: str
+    :type words: List[str]
+    :rtype: List[int]
+    """
+    for w in set(words):
+        if w not in s:
+            return []
+    leng = len(w)
+    lconc = leng*len(words)
+    lens = len(s)
+    if lconc > lens:
+        return []
+    result = []
+    start = 0
+    while start < lens:
+        inds = []
+        while len(inds) < len(words):
+            inds = []
+            string = s
+            for w in words:
+                ind = string.find(w, start)
+                print(w)
+                if ind == -1 or ind + leng > lens:
+                    if inds and min(inds) + 1 + lconc <= lens:
+                        start = min(inds) + 1
+                        break
+                    else:
+                        print(w)
+                        print(inds)
+                        return result
+                string = string[:ind] + '*'*leng + string[ind+leng:]
+                inds.append(ind)
+        inds.sort()
+        print(inds)
+        num = None
+        concat = True
+        for n in inds:
+            if not num:
+                num = n
+                continue
+            if n - num != leng:
+                concat = False
+                print(f'{n}-{num}!={leng}')
+                print('НЕТ')
+                break
+            num = n
+        if concat:
+            result.append(inds[0])
+            print('ДА')
+        start = inds[0] + 1
+    return result
+
+'''
+Это решение выполняет задачу частично: пройденных тестов 156 из 183. При входных данных s = "ababaab", 
+words = ["ab","ba","ba"] решение выдаёт пустой список, тогда как результат должен быть = [1]. В поисках
+решения я решил добавить ещё один вложенный цикл while на уровне вложенности между while start < len(s) 
+и for w in words - смотрите my_solution3() выше.
+'''
 def my_solution2(s, words):
     """
     :type s: str
