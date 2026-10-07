@@ -1,3 +1,107 @@
+def my_solution5(s, words):
+    """
+    :type s: str
+    :type words: List[str]
+    :rtype: List[int]
+    """
+    for w in set(words):
+        if w not in s:
+            return []
+    leng = len(w)
+    lconc = leng*len(words)
+    lens = len(s)
+    if lconc > lens:
+        return []
+    result = []
+    inds = []
+    word = words[0]
+    ind = s.find(word)
+    while ind != -1:
+        inds.append(ind)
+        ind = s.find(word, ind + 1)
+    for n1 in inds:
+        left = n1 - leng
+        right = n1 + leng
+        leftw = ''
+        rightw = ''
+        concats = words[1:]
+        if left not in result and left >= 0:
+            leftw = s[left:n1]
+        if n1 + leng*2 <= lens:
+            rightw = s[right:right+leng]
+        while leftw in concats:
+            concats.remove(leftw)
+            if not concats:
+                break
+            left -= leng
+            if left >= 0:
+                leftw = s[left:left+leng]
+            else:
+                break
+        while rightw in concats:
+            concats.remove(rightw)
+            if right in inds:
+                inds.remove(right)
+            if not concats:
+                break
+            right += leng
+            if right + leng <= lens:
+                rightw = s[right:right+leng]
+            else:
+                break
+        if not concats:
+            if left >= 0 and left not in result:
+                result.append(left)
+            else:
+                result.append(n1)
+    return result
+
+
+'''
+Мне не нужен словарь - достаточно списка индексов любого слова из words, так как
+любая конкатенированная строка должна содержать все слова из списка.
+'''
+def my_solution4(s, words):
+    """
+    :type s: str
+    :type words: List[str]
+    :rtype: List[int]
+    """
+    for w in set(words):
+        if w not in s:
+            return []
+    leng = len(w)
+    lconc = leng*len(words)
+    lens = len(s)
+    if lconc > lens:
+        return []
+    result = []
+    start = 0
+    inds = []
+    iwords = {}
+    for w1 in words:
+        ind = s.find(w1, start)
+        while ind != -1:
+            inds.append(ind)
+            ind = s.find(w1, ind + 1)
+        iwords[w1] = inds
+        inds = []
+    left = None
+    right = None
+    for n in iwords[w1]:
+        if left == None:
+            left = n - leng
+        if right == None:
+            right = n + leng
+        concat = True
+        for w2 in iwords:
+            if w2 == w1:
+                continue
+            #if left not in 
+
+        pass
+
+
 '''
 Мысль: ведь конкатенированная строка это последовательность индексов строк, с разницей в длину одной строки. 
 Может, получится найти минимальный индекс возможной конкатенированной строки и выполнить проверку наоборот:
