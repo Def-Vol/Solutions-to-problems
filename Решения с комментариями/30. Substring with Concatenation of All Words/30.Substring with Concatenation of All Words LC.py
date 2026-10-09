@@ -40,6 +40,8 @@ def my_solution5(s, words):
                 leftw = s[left:left+leng]
             else:
                 break
+        if concats:
+            left += leng
         while rightw in concats:
             concats.remove(rightw)
             if right in inds:
