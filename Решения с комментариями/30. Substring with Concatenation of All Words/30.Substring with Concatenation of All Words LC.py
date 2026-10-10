@@ -25,6 +25,7 @@ def my_solution5(s, words):
         leftw = ''
         rightw = ''
         left_ind = False
+        right_ind = False
         concats = words[1:]
         if left not in result and left >= 0:
             leftw = s[left:n1]
@@ -40,10 +41,12 @@ def my_solution5(s, words):
                 leftw = s[left:left+leng]
             else:
                 break
-        if concats:
+        if left_ind and concats:
             left += leng
+            leftw = s[left:left+leng]
         while rightw in concats:
             concats.remove(rightw)
+            right_ind = True
             if right in inds:
                 inds.remove(right)
             if not concats:
@@ -55,7 +58,19 @@ def my_solution5(s, words):
                 break
         if not concats:
             if left_ind:
-                result.append(left)
+                if left not in result:
+                    result.append(left)
+                if right_ind:
+                    right += leng
+                    rightw = s[right:right+leng]
+                while rightw == leftw:
+                    left += leng
+                    leftw = s[left:left+leng]
+                    result.append(left)
+                    if left == n1:
+                        break
+                    right += leng
+                    rightw = s[right:right+leng]
             else:
                 result.append(n1)
     return result
