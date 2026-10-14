@@ -25,8 +25,7 @@ def my_search1(candidates, target):
     for n1 in candidates:
         if target % n1 == 0:
             result.append([n1]*(target//n1))
-        if n1 != candidates[-1]:
-            for n2 in candidates[candidates.index(n1)+1:]:
-                if n1 == n2:
-                    continue
-                if n2 % n1 == 0:
+            if n1 != candidates[-1]:
+                for n2 in candidates[candidates.index(n1)+1:]:
+                    if n2 % n1 == 0:
+                    
