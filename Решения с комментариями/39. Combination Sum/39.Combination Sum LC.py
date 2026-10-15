@@ -26,6 +26,12 @@ def my_search1(candidates, target):
         if target % n1 == 0:
             result.append([n1]*(target//n1))
             if n1 != candidates[-1]:
-                for n2 in candidates[candidates.index(n1)+1:]:
+                lastn = candidates[candidates.index(n1)+1:]
+                for n2 in lastn:
                     if n2 % n1 == 0:
+                        repl = n2 // n1
+                        nums = [n2] + result[-1][repl:]
+                        while n1 in nums:
+                            result.append(nums)
+                            nums = [n2] + nums[:len(nums)-repl]
                     
