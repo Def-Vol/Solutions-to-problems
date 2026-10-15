@@ -33,5 +33,7 @@ def my_search1(candidates, target):
                         nums = [n2] + result[-1][repl:]
                         while n1 in nums:
                             result.append(nums)
+                            if len(nums)-repl <= 0:
+                                break
                             nums = [n2] + nums[:len(nums)-repl]
                     
