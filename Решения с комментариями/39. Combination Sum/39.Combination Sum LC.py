@@ -32,16 +32,18 @@
 '''
 def my_search2(candidates, target):
     result = []
+    candidates.sort()
     comb = []
-    def find_num(candidates, target):
+    def find_num(target):
         for n1 in candidates:
             target -= n1
-            if verif:
-                comb.append(n1)
             if target == 0:
                 verif = True
+                break
+            if verif:
+                comb.append(n1)
             elif target > 0:
-                find_num(candidates, target)
+                find_num(target)
             else:
                 
     pass
