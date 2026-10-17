@@ -32,8 +32,26 @@
 Надо решить, когда будет наращиваться комбинация. При моём алгоритме реалистичным выглядит вариант,
 когда наращивание происходит до достижения базового случая, а при его достижении готовая комбинация
 добавляется в результирующий список.
+
+Для предотвращения отправки в результат индентичных комбинаций, каждая из них будет сортироваться и
+выполняться проверка на наличие в результирующем списке перед добавлением. Такой подход к решению
+этой проблемы неэффективен, так как будут фактически выполняться ненужные рекурсивные вызовы, уж не
+говоря об операциях сортировки и сравнения списков. Но это гарантирует получение правильного 
+результата.
 '''
 def my_search2(candidates, target):
+    if len(candidates) == 1:
+        if target % candidates[0] == 0:
+            return [candidates[0]]*target//candidates[0]
+        else:
+            return []
+    if target == 1:
+        return []
+    if target == 2:
+        if 2 in candidates:
+            return [2]
+        else: 
+            return []
     result = []
     candidates.sort()
     comb = []
@@ -44,7 +62,9 @@ def my_search2(candidates, target):
                 del comb[-1]
             comb.append(n1)
             if rem == 0:
-                result.append(comb)
+                comb.sort()
+                if comb not in result:
+                    result.append(comb)
                 break
             elif rem > 0:
                 find_num(rem)
