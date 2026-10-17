@@ -65,10 +65,12 @@ def my_search2(candidates, target):
                 comb.sort()
                 if comb not in result:
                     result.append(comb)
+                del comb[-1]
                 break
             elif rem > 0:
                 find_num(rem)
             else:
+                del comb[-1]
                 break
     find_num(target)
     return result
