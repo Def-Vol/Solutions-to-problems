@@ -39,15 +39,15 @@ def my_search2(candidates, target):
     comb = []
     def find_num(target):
         for n1 in candidates:
-            target -= n1
+            rem = target - n1    
             if n1 != candidates[0]:
                 del comb[-1]
             comb.append(n1)
-            if target == 0:
+            if rem == 0:
                 result.append(comb)
                 break
-            elif target > 0:
-                find_num(target)
+            elif rem > 0:
+                find_num(rem)
             else:
                 break
     find_num(target)
