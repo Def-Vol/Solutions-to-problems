@@ -1,4 +1,65 @@
 '''
+Составленная до этой функция my_search2() работала неправильно: например, при входных candidates=[2,3,5], 
+target=8 - та функция выдавала [[2,3]], когда должна была [[2,2,2,2],[2,3,3],[3,5]]. В попытках разобраться,
+почему выдаётся такой результат и куда теряются остальные списки, я пришёл к выводу, что каждый рекурсивный
+вызов работает в итоге с пустой result, которая создаётся за пределами функции. Тогда в тестовой функции
+my_test2() я добавил, возврат результирущего списка, а рекурсивных вызов, соответственно, поместил в 
+инструкцию присваивания для этого же списка. В результате ф-я перестала работать вовсе, выдавая на проверке
+условия: if comb not in result - следующее исключение:
+UnboundLocalError: cannot access local variable 'result' where it is not associated with a value
+
+'''
+def my_test2(candidates, target):
+    """
+    :type candidates: List[int]
+    :type target: int
+    :rtype: List[List[int]]
+    """
+    if len(candidates) == 1:
+        if target % candidates[0] == 0:
+            return [candidates[0]]*target//candidates[0]
+        else:
+            return []
+    if target == 1:
+        return []
+    if target == 2:
+        if 2 in candidates:
+            return [2]
+        else: 
+            return []
+    result = []
+    candidates.sort()
+    comb = []
+    def find_num(target):
+        if not result:
+            result = []
+        for n1 in candidates:
+            rem = target - n1    
+            if n1 != candidates[0]:
+                del comb[-1]
+            comb.append(n1)
+            print(f'1: {comb}')
+            if rem == 0:
+                comb.sort()
+                if comb not in result:
+                    print(f'В результат: {comb}')
+                    result.append(comb)
+                del comb[-1]
+                break
+            elif rem > 0:
+                result = find_num(rem)
+            else:
+                del comb[-1]
+                break
+        print(f'Итог: {result}')
+        return result
+    find_num(target)
+    return result
+print(my_test2([2,3,5], 8))
+
+
+
+'''
 Мой предыдущий алгоритм разросся до вложенных циклов внутри вложенных циклов и кучи условий. И всё 
 время, пока я его писал, меня не оставляли мысли о том, что задача решается на самом деле куда более 
 коротким алгоритмом. Поэтому я пока решил отложить написание предыдущего алгоритма (сразу внизу) и 
