@@ -8,7 +8,7 @@ my_test2() я добавил, возврат результирущего спи
 условия: if comb not in result - следующее исключение:
 UnboundLocalError: cannot access local variable 'result' where it is not associated with a value
 Может создать другую переменную? Хотя нет, скорее всего, дело в том, что список не передаётся в качестве
-аргумента!
+аргумента! Поэтому для каждого рекрсивного вызова он пустой!
 '''
 def my_test2(candidates, target):
     """
