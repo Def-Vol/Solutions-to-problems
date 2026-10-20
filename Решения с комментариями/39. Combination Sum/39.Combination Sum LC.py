@@ -50,9 +50,9 @@ def my_test2(candidates, target):
             rem = target - n1    
             if n1 != candidates[0]:
                 del comb[-1]
-            comb.append(n1)
-            print(f'1: {comb}')
             if rem == 0:
+                comb.append(n1)
+                print(f'1: {comb}')
                 comb.sort()
                 if comb not in result:
                     print(f'В результат: {comb}')
@@ -60,9 +60,10 @@ def my_test2(candidates, target):
                 del comb[-1]
                 break
             elif rem > 0:
+                comb.append(n1)
+                print(f'1: {comb}')
                 find_num(rem, result)
             else:
-                del comb[-1]
                 break
         print(f'Итог: {result}')
     find_num(target, result)
