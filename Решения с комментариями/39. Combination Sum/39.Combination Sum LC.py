@@ -5,7 +5,7 @@
 против 20ms решений сообщества, что заставляет меня заняться оптимизацией, однако я вынужден отложить это
 ради повторения теории и прорешиваний задач на SQL. Но я решил задержаться и мне пришло на ум заменить цикл
 for на цикл с уловием повторения while, так чтобы избавиться от раздражающих меня break, ведь использование
-этого ключего слова, как правило, всегда говорит о неудачно избранном подходе.
+этого ключевого слова, как правило, всегда говорит о неудачно избранном подходе.
 '''
 def my_solution2(candidates, target):
     """
@@ -29,11 +29,11 @@ def my_solution2(candidates, target):
                 break
             elif rem > 0:
                 comb.append(n1)
-                find_num(rem, result)
+                find_num(rem)
             else:
                 break
             del comb[-1]
-    find_num(target, result)
+    find_num(target)
     return result
 
 
@@ -158,14 +158,14 @@ def my_test2(candidates, target):
             elif rem > 0:
                 comb.append(n1)
                 print(f'rem>0! {rem}: {comb}')
-                find_num(rem, result)
+                find_num(rem)
             else:
                 break
             del comb[-1]
         print(f'Итог: {result}')
-    find_num(target, result)
+    find_num(target)
     return result
-print(my_test2([2,3,5], 8))
+#print(my_test2([2,3,5], 8))
 
 
 
